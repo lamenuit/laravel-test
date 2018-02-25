@@ -18,3 +18,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// Novel Routes
+Route::get('/novel', 'Front\NovelController@index')->name('front.novel');
