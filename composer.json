@@ -9,6 +9,7 @@
         "backpack/base": "^0.8.9",
         "backpack/crud": "^3.3",
         "backpack/langfilemanager": "^1.0",
+        "backpack/permissionmanager": "^2.1",
         "backpack/settings": "^2.0",
         "fideloper/proxy": "~4.0",
         "laravel/framework": "5.6.*",
