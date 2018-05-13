@@ -17,6 +17,7 @@
 
           <!-- ======================================= -->
           {{-- <li class="header">Other menus</li> --}}
+          <li><a href="{{ backpack_url('setting') }}"><i class="fa fa-cog"></i> <span>Settings</span></a></li>
         </ul>
       </section>
       <!-- /.sidebar -->
