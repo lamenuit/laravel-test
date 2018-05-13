@@ -15,9 +15,24 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+/************************************************************************************************
+*                                   OPEN ROUTES                                                 *
+************************************************************************************************/
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 
-// Novel Routes
-Route::get('/novel', 'Front\NovelController@index')->name('front.novel');
+/************************************************************************************************
+*                                   INTERNAL ROUTES                                             *
+************************************************************************************************/
+Route::group(['prefix' => 'admin', 'middleware' => ['admin'], 'namespace' => 'Admin'], function(){
+    Route::get('/home', 'HomeController@index')->name('home');
+});
+
+
+/************************************************************************************************
+*                                   ADMIN ROUTES                                                *
+************************************************************************************************/
+Route::group(['prefix' => 'admin', 'middleware' => ['admin'], 'namespace' => 'Admin'], function()
+{
+   CRUD::resource('tag', 'TagCrudController');
+});
