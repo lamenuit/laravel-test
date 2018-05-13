@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use Backpack\CRUD\app\Http\Controllers\CrudController;
+use Illuminate\Support\Facades\Input;
+use App\Models\Manga;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
 use App\Http\Requests\MangaRequest as StoreRequest;
@@ -12,29 +14,52 @@ class MangaCrudController extends CrudController
 {
     public function setup()
     {
-
-        /*
-        |--------------------------------------------------------------------------
-        | BASIC CRUD INFORMATION
-        |--------------------------------------------------------------------------
-        */
         $this->crud->setModel('App\Models\Manga');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/manga');
         $this->crud->setEntityNameStrings('manga', 'mangas');
 
-        /*
-        |--------------------------------------------------------------------------
-        | BASIC CRUD INFORMATION
-        |--------------------------------------------------------------------------
-        */
+        $this->crud->addFields([
+            [
+                'name'  => 'title',
+                'label' => 'Titre',
+                'type'  => 'text'
+            ],
+            [
+                'name'  => 'title_2',
+                'label' => 'Titre 2',
+                'type'  => 'text',
+                'hint'  => 'Si on a les deux versions/langues du titre'
+            ],
+            [
+                'name'    => 'language',
+                'label'   => 'Langue',
+                'type'    => 'select_from_array',
+                'options' => ['english' => 'English', 'japanese' => 'Japanese'],
+                'default' => 'English',
+                'allows_null' => false
+            ]
+        ], 'both');
+        $this->crud->addFields([
+            [
+                'name'   => 'manga',
+                'label'  => 'Archive du manga',
+                'type'   => 'upload',
+                'upload' => true
+            ]
+        ], 'update');
 
-        $this->crud->setFromDb();
-
-        // ------ CRUD FIELDS
-        // $this->crud->addField($options, 'update/create/both');
-        // $this->crud->addFields($array_of_arrays, 'update/create/both');
-        // $this->crud->removeField('name', 'update/create/both');
-        // $this->crud->removeFields($array_of_names, 'update/create/both');
+        $this->crud->addColumns([
+            [
+                'name'  => 'id',
+                'label' => 'ID',
+                'type'  => 'number'
+            ],
+            [
+                'name'  => 'title',
+                'label' => 'Titre',
+                'type'  => 'text'
+            ],
+        ]);
 
         // ------ CRUD COLUMNS
         // $this->crud->addColumn(); // add a single column, at the end of the stack
@@ -101,6 +126,9 @@ class MangaCrudController extends CrudController
 
     public function store(StoreRequest $request)
     {
+
+        // $res = Manga::processArchive($manga);
+
         // your additional operations before save here
         $redirect_location = parent::storeCrud($request);
         // your additional operations after save here
@@ -110,6 +138,12 @@ class MangaCrudController extends CrudController
 
     public function update(UpdateRequest $request)
     {
+        $manga = Input::file('manga');
+        if ($manga === null) {
+            return false;
+        }
+
+        dd($this->crud->entry);
         // your additional operations before save here
         $redirect_location = parent::updateCrud($request);
         // your additional operations after save here
