@@ -38,6 +38,14 @@ class MangaCrudController extends CrudController
                 'options' => ['english' => 'English', 'japanese' => 'Japanese'],
                 'default' => 'English',
                 'allows_null' => false
+            ],
+            [
+                'label'     => 'Auteur',
+                'type'      => 'select2',
+                'name'      => 'author_id',
+                'entity'    => 'author',
+                'attribute' => 'name',
+                'model'     => 'App\Models\Author'
             ]
         ], 'both');
         $this->crud->addFields([
@@ -79,7 +87,6 @@ class MangaCrudController extends CrudController
         if ($manga !== null) {
             $res = $this->crud->entry->processArchive($manga);
         }
-        dd('test');
 
         return $redirect_location;
     }

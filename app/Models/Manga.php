@@ -18,7 +18,7 @@ class Manga extends Model
 
     protected $table = 'mangas';
     protected $primaryKey = 'id';
-    protected $fillable = ['title', 'title_2', 'language'];
+    protected $fillable = ['author_id', 'title', 'title_2', 'language'];
 
     public $timestamps = true;
 
@@ -93,6 +93,11 @@ class Manga extends Model
     public function pages()
     {
         return $this->hasMany('App\Models\Mpage');
+    }
+
+    public function author()
+    {
+        return $this->hasOne('App\Models\Author');
     }
 
     /**************************************************************************
