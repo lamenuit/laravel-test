@@ -22,4 +22,5 @@ Route::group(['middleware' => ['FrontAuth'], 'namespace' => 'Front'], function()
 Route::group(['prefix' => 'admin', 'middleware' => ['admin'], 'namespace' => 'Admin'], function()
 {
     CRUD::resource('manga', 'MangaCrudController');
+    CRUD::resource('author', 'AuthorCrudController');
 });
