@@ -13,6 +13,7 @@ Route::group(['middleware' => ['FrontAuth'], 'namespace' => 'Front'], function()
     // Mangas
     Route::group(['prefix' => 'mangas'], function(){
         Route::get('/', 'MangaController@initList')->name('manga-listing');
+        Route::get('/{id}-{slug}', 'MangaController@initView')->name('manga-view');
     });
 });
 
