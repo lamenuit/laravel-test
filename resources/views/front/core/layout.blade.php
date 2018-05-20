@@ -4,7 +4,14 @@
     <title></title>
 </head>
 <body>
-    ICI layout
+    <div>
+        @include('front.core.header')
+    </div>
+
     @yield('main')
+
+    <div>
+        @include('front.core.footer')
+    </div>
 </body>
 </html>
