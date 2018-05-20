@@ -39,6 +39,13 @@ class Mpage extends Model
         return self::MPAGE_FOLDER.$path.'/';
     }
 
+    public function getImagePath(): string
+    {
+        $path = str_split((string)$this->id);
+        $path = implode('/', $path);
+        return 'mpages/'.$path.'/'.$this->id.'.'.$this->extension;
+    }
+
     /**************************************************************************
     *                               MUTATORS                                  *
     **************************************************************************/
