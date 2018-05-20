@@ -7,7 +7,7 @@ Auth::routes();
 /************************************************************************************************
 *                                   INTERNAL ROUTES                                             *
 ************************************************************************************************/
-Route::group(['middleware' => ['auth'], 'namespace' => 'Front'], function(){
+Route::group(['middleware' => ['FrontAuth'], 'namespace' => 'Front'], function(){
     Route::get('/home', 'HomeController@index')->name('home');
 
     // Mangas
