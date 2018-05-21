@@ -15,7 +15,6 @@ class FrontAuth
      */
     public function handle($request, Closure $next)
     {
-        var_dump('hoy');
         return $next($request);
     }
 }
