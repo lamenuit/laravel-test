@@ -13,5 +13,7 @@
     <div>
         @include('front.core.footer')
     </div>
+
+    @stack('after_scripts')
 </body>
 </html>
