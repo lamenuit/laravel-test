@@ -46,6 +46,15 @@ class MangaCrudController extends CrudController
                 'entity'    => 'author',
                 'attribute' => 'name',
                 'model'     => 'App\Models\Author'
+            ],
+            [
+                'label'     => 'Tags',
+                'type'      => 'select2_multiple',
+                'name'      => 'tags',
+                'entity'    => 'tags',
+                'attribute' => 'name',
+                'model'     => 'App\Models\Tag',
+                'pivot'     => true,
             ]
         ], 'both');
         $this->crud->addFields([

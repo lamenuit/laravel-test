@@ -15,3 +15,14 @@
         </div>
     @endif
 @endsection
+
+@push('after_scripts')
+    <script type="text/javascript">
+        var pages = [
+            @foreach ($pages as $page)
+                '{{$page->image}}',
+            @endforeach
+        ];
+        console.log(pages);
+    </script>
+@endpush

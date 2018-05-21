@@ -19,6 +19,7 @@
             <ul class="treeview-menu">
               <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/manga') }}"><i class="fa fa-user"></i> <span>Mangas</span></a></li>
               <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/author') }}"><i class="fa fa-user"></i> <span>Auteurs</span></a></li>
+              <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/tag') }}"><i class="fa fa-user"></i> <span>Tags</span></a></li>
             </ul>
           </li>
 
