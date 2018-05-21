@@ -1,28 +1,42 @@
 @extends('front.core.layout')
 
 @section('main')
-    <h1>PAGE MANGA</h1>
-
-    TEST DE MANGA
-
-    @if (isset($pages) && !empty($pages))
-        <div>
-            <h2>Pages</h2>
-            @foreach ($pages as $page)
-                {{$page->id}}.{{$page->extension}} <br>
-                <img src="{{asset('storage/'.$page->image)}}">
-            @endforeach
+    <div id="manga-page">
+        <div id="manga-page-head">
+            <h1>{{$manga->title}}</h1>
+            <p class="subtitle">@if (isset($author) && !empty($author)) {{$author->name}} @endif</p>
         </div>
-    @endif
+
+        @if (isset($pages) && !empty($pages))
+            <div id="manga-page-body">
+                <img id="image-display" src="{{asset('storage/'.$pages[0]->image)}}">
+            </div>
+        @endif
+    </div>
 @endsection
 
 @push('after_scripts')
     <script type="text/javascript">
-        var pages = [
-            @foreach ($pages as $page)
-                '{{$page->image}}',
-            @endforeach
-        ];
-        console.log(pages);
+        $(document).ready(function(){
+            var pages = [
+                @foreach ($pages as $page)
+                    '{{$page->image}}',
+                @endforeach
+            ];
+            var pointer = 0;
+            var prefix  = '{{ asset('storage') }}';
+
+            $(document).keypress(function(e) {
+                var code = e.keyCode || e.which;
+                if(code == 39 && pointer < (pages.length - 1)) { // right arrow
+                    pointer++;
+                    $('#image-display').attr('src', prefix+'/'+pages[pointer]);
+                }
+                if(code == 37 && pointer != 0) { // left arrow
+                    pointer--;
+                    $('#image-display').attr('src', prefix+'/'+pages[pointer]);
+                }
+            });
+        })
     </script>
 @endpush

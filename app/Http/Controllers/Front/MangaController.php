@@ -35,8 +35,9 @@ class MangaController extends FrontController
         }
 
         return View::make('front.manga.manga-view', array(
-            'manga' => $this->_model,
-            'pages' => $pages
+            'manga'  => $this->_model,
+            'pages'  => $pages,
+            'author' => $this->_model->author
         ));
     }
 }
