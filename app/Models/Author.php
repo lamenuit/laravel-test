@@ -35,6 +35,11 @@ class Author extends Model
         return $this->firstname.' '.$this->name;
     }
 
+    public function mangas()
+    {
+        return $this->hasMany('App\Models\Manga');
+    }
+
     /**************************************************************************
     *                               MUTATORS                                  *
     **************************************************************************/

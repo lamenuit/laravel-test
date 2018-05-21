@@ -97,7 +97,7 @@ class Manga extends Model
 
     public function author()
     {
-        return $this->hasOne('App\Models\Author');
+        return $this->belongsTo('App\Models\Author');
     }
 
     public function tags()
