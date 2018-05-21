@@ -24,4 +24,5 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin'], 'namespace' => 'Ad
 {
     CRUD::resource('manga', 'MangaCrudController');
     CRUD::resource('author', 'AuthorCrudController');
+    CRUD::resource('tag', 'TagCrudController');
 });

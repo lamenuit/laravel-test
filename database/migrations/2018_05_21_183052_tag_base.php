@@ -16,6 +16,7 @@ class TagBase extends Migration
         Schema::create('tags', function($table){
             $table->increments('id');
             $table->string('name');
+            $table->boolean('type')->nullable();
 
             $table->index('name');
         });
