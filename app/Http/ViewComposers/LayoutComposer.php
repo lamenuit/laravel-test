@@ -10,7 +10,8 @@ class LayoutComposer
         'js/libs/jquery.min.js'
     ];
     const CSS_LIBS = [
-        'css/libs/bootstrap.min.css'
+        'css/libs/bootstrap.min.css',
+        'css/app.css'
     ];
 
 

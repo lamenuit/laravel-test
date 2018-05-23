@@ -3,7 +3,7 @@
 @section('main')
     <div id="manga-page">
         <div id="manga-page-head">
-            <h1>{{$manga->title}}</h1>
+            <h1 class="title">{{$manga->title}}</h1>
             <p class="subtitle">@if (isset($author) && !empty($author)) {{$author->name}} @endif</p>
         </div>
 

@@ -4,5 +4,9 @@
     <p>ICI LE CONTENT DE MA SECTION</p>
 
     TEST DE MANGA
-    <a href="{{ route('manga-view', ['id' => $mangas->id, 'slug' => 'test']) }}">LIEN VERS MANGA test</a>
+    @if (isset($mangas) && !empty($mangas))
+        @foreach ($mangas as $manga)
+            <a href="{{ route('manga-view', ['id' => $manga->id, 'slug' => 'test']) }}">LIEN VERS MANGA : {{$manga->title}}</a> <br>
+        @endforeach
+    @endif
 @endsection

@@ -15,10 +15,10 @@ class MangaController extends FrontController
 
     protected function _renderList(Request $request)
     {
-        $manga = Manga::find(1);
+        $mangas = Manga::all();
 
         return View::make('front.manga.manga-list-core', array(
-            'mangas' => $manga,
+            'mangas' => $mangas,
         ));
     }
 
