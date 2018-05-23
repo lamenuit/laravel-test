@@ -14,7 +14,7 @@ class Manga extends Model
     use CrudTrait;
 
     const EXTRACT_FOLDER = '/upload_buffer';
-    const ALLOWED_IMAGE_EXTENSIONS = array('jpg', 'png', 'jpeg');
+    const ALLOWED_IMAGE_EXTENSIONS = array('jpg', 'png', 'jpeg', 'gif');
 
     protected $table = 'mangas';
     protected $primaryKey = 'id';
@@ -80,7 +80,7 @@ class Manga extends Model
             if ($page->save()) {
                 // var_dump($key);
                 // echo "<pre>";var_dump($page->getMPagePath(), $pageData['name']);echo "</pre>";
-                Storage::disk('local')->put($page->getMPagePath().$pageData['name'], file_get_contents($pageData['path']));
+                Storage::disk('local')->put($page->getMPagePath().$page->id.'.'.$page->extension, file_get_contents($pageData['path']));
             }
         }
 
