@@ -15,6 +15,11 @@ Route::group(['middleware' => ['FrontAuth'], 'namespace' => 'Front'], function()
         Route::get('/', 'MangaController@initList')->name('manga-listing');
         Route::get('/{id}-{slug}', 'MangaController@initView')->name('manga-view');
     });
+
+    // AJAX
+    Route::group(['prefix' => 'ajax'], function(){
+        Route::get('/manga', 'MangaController@ajaxProcess')->name('ajax-manga-get');
+    });
 });
 
 /************************************************************************************************
