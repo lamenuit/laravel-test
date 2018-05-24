@@ -22,14 +22,20 @@ body {
 /****************************************************************************************************
 *                                           MANGA                                                   *
 ****************************************************************************************************/
-#image-display {
-    margin-right: auto;
-    margin-left: auto;
-    display: block;
-}
-
-.manga-line {
-    border-top: 1px solid black;
-    display: flex;
+#manga-main .manga-list-header {
+    margin-bottom: 10px;
+    padding-left: 10px;
     width: 100%;
 }
+
+    #image-display {
+        margin-right: auto;
+        margin-left: auto;
+        display: block;
+    }
+
+    .manga-line {
+        border-top: 1px solid black;
+        display: flex;
+        width: 100%;
+    }
