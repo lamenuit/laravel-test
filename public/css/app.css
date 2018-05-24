@@ -10,8 +10,26 @@ body {
     color: white;
     font-weight: bold;
 }
+.neutral-bg {
+    background-color: #eaecef;
+    border-radius: 5px;
+    color: black;
+    margin-bottom: 10px;
+    padding: 5px;
+}
 
 
 /****************************************************************************************************
 *                                           MANGA                                                   *
 ****************************************************************************************************/
+#image-display {
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+}
+
+.manga-line {
+    border-top: 1px solid black;
+    display: flex;
+    width: 100%;
+}

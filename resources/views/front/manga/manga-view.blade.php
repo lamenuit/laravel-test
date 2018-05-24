@@ -1,8 +1,8 @@
 @extends('front.core.layout')
 
 @section('main')
-    <div id="manga-page">
-        <div id="manga-page-head">
+    <div id="manga-page" class="col-lg-12">
+        <div id="manga-page-head" class="neutral-bg">
             <h1 class="title">{{$manga->title}}</h1>
             <p class="subtitle">@if (isset($author) && !empty($author)) {{$author->name}} @endif</p>
         </div>

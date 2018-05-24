@@ -1,12 +1,21 @@
 @extends('front.core.layout')
 
 @section('main')
-    <p>ICI LE CONTENT DE MA SECTION</p>
+    <div class="row neutral-bg">
+        <h1>Listing des mangas</h1>
 
-    TEST DE MANGA
-    @if (isset($mangas) && !empty($mangas))
-        @foreach ($mangas as $manga)
-            <a href="{{ route('manga-view', ['id' => $manga->id, 'slug' => 'test']) }}">LIEN VERS MANGA : {{$manga->title}}</a> <br>
-        @endforeach
-    @endif
+        @if (isset($mangas) && !empty($mangas))
+            @foreach ($mangas as $manga)
+                <div class="manga-line">
+                    <div class="col-md-4">
+                        ICI IMAGE
+                    </div>
+                    <div class="col-md-8">
+                        <h3 class="tertiary-title">{{$manga->title}}</h3>
+                        <a href="{{ route('manga-view', ['id' => $manga->id, 'slug' => $manga->title]) }}">LIEN VERS MANGA</a> <br>
+                    </div>
+                </div>
+            @endforeach
+        @endif
+    </div>
 @endsection
