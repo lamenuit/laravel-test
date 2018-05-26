@@ -26,7 +26,11 @@ class MangaRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+            'title'      => 'bail|required|string|max:255',
+            'author_id'  => 'nullable|integer',
+            'title_2'    => 'nullable|string|max:255',
+            'language'   => 'nullable|string|max:255',
+            'page_total' => 'nullable|integer'
         ];
     }
 

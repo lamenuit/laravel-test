@@ -4,12 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Illuminate\Support\Facades\Input;
-use App\Models\Manga;
-use Storage;
-
-// VALIDATION: change the requests to match your own file names if you need form validation
 use App\Http\Requests\MangaRequest as StoreRequest;
 use App\Http\Requests\MangaRequest as UpdateRequest;
+use Storage;
+
+use App\Models\Manga;
+use App\Models\Author;
 
 class MangaCrudController extends CrudController
 {
@@ -40,12 +40,11 @@ class MangaCrudController extends CrudController
                 'allows_null' => false
             ],
             [
-                'label'     => 'Auteur',
-                'type'      => 'select2',
-                'name'      => 'author_id',
-                'entity'    => 'author',
-                'attribute' => 'name',
-                'model'     => 'App\Models\Author'
+                'name'    => 'author_id',
+                'label'   => 'Auteur',
+                'type'    => 'select2_from_array',
+                'options' => Author::getAllAuthorFullNames(),
+                'default' => 1,
             ],
             [
                 'label'     => 'Tags',

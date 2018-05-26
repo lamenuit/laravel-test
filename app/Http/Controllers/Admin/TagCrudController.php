@@ -42,6 +42,12 @@ class TagCrudController extends CrudController
                 'label' => 'Nom du tag',
                 'type'  => 'text'
             ],
+            [
+                'name'  => 'type',
+                'label' => 'Genre',
+                'type'  => 'radio',
+                'options' => [0 => 'Male', 1 => 'Female', 2 => 'Neutral']
+            ]
         ]);
     }
 

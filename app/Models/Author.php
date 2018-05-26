@@ -18,6 +18,15 @@ class Author extends Model
     /**************************************************************************
     *                               FUNCTIONS                                 *
     **************************************************************************/
+    public static function getAllAuthorFullNames(): array
+    {
+        $authors = [];
+        foreach (Author::all() as $author) {
+            $authors[$author->id] = $author->firstname.' '.$author->name.' | '.$author->alias;
+        }
+
+        return $authors;
+    }
 
     /**************************************************************************
     *                               RELATIONS                                 *
